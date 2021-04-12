@@ -28,7 +28,9 @@ const BlogPage = (props) => {
       <div>
         <Menu />
         <Hero title="Blog" />
-        <BlogList {...props} />
+        <article>
+          <BlogList {...props} />
+        </article>
         <Footer />
       </div>
     </Page>

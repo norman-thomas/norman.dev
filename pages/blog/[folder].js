@@ -4,7 +4,7 @@ import Link from "next/link"
 import fs from "fs"
 import glob from "glob-promise"
 import { readDataFromFilename, listMarkdownFilesIn, listMarkdownFiles } from "../../utils/files"
-import { Page, BlogList } from "../../components"
+import { Page, Hero, BlogList } from "../../components"
 
 export const getStaticPaths = async (context) => {
   console.log("CONTEXT:", context)
@@ -47,7 +47,10 @@ const TopicPage = (props) => {
       <Head>
         <title>Blog: [Haskell]</title>
       </Head>
-      <BlogList {...props} />
+      <Hero title="Haskell" />
+      <article>
+        <BlogList {...props} />
+      </article>
     </Page>
   )
 }

@@ -30,7 +30,9 @@ const StartPage = (props) => {
       <div>
         <Menu />
         <Hero title="norman.dev" />
-        <BlogList {...props} maxCount={9} />
+        <article>
+          <BlogList {...props} maxCount={9} />
+        </article>
         <Footer />
       </div>
     </Page>
