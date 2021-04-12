@@ -3,6 +3,7 @@ import matter from "gray-matter"
 
 export const readDataFromFilename = (filename, fs) => {
   const fileContent = fs.readFileSync(filename)
+  const fileTimestamp = fs.statSync(filename).mtime.toISOString()
   const text = fileContent.toString()
   const { data, content } = matter(text)
   const options = { year: "numeric", month: "long", day: "numeric" }
@@ -14,6 +15,7 @@ export const readDataFromFilename = (filename, fs) => {
     content,
     createdAt: formattedCreatedDate,
     updatedAt: formattedUpdatedDate,
+    fileTimestamp,
     filename: path.basename(filename, ".md"),
     folder: path.basename(path.dirname(filename)),
   }

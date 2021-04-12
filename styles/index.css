@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "font.css";
+
+@layer components {
+  .heading {
+    @apply font-serif font-bold py-4;
+  }
+}

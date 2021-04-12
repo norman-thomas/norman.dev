@@ -23,11 +23,11 @@ const BlogPage = (props) => {
   return (
     <Page>
       <Head>
-        <title>Blog</title>
+        <title>norman.dev: Blog</title>
       </Head>
-      <div className="divide-y">
+      <div>
         <Menu />
-        <Hero title="Articles" />
+        <Hero title="Blog" />
         <BlogList {...props} />
         <Footer />
       </div>

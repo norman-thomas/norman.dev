@@ -7,7 +7,9 @@ import { Page, Menu, Hero, BlogList, Footer } from "../components"
 
 export const getStaticProps = async () => {
   const files = await listMarkdownFiles(glob)
-  const content = files.map((filename) => readDataFromFilename(filename, fs))
+  const content = files
+    .map((filename) => readDataFromFilename(filename, fs))
+    .sort((a, b) => (a.fileTimestamp > b.fileTimestamp ? -1 : 1))
   const contentByFolder = content.reduce((acc, f) => {
     acc[f.folder] = (acc[f.folder] || []).concat(f)
     return acc
@@ -23,11 +25,11 @@ const StartPage = (props) => {
   return (
     <Page>
       <Head>
-        <title>Blog</title>
+        <title>norman.dev</title>
       </Head>
-      <div className="divide-y">
+      <div>
         <Menu />
-        <Hero title="λ Functional" />
+        <Hero title="norman.dev" />
         <BlogList {...props} maxCount={9} />
         <Footer />
       </div>
