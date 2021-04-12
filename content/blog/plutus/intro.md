@@ -16,6 +16,11 @@ tags:
 
 ## Setup Environment
 
+```sh
+> nix build -t .
+
+> nix-shell
+```
 
 
 ## Development Workflow

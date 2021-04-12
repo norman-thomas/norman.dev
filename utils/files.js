@@ -9,9 +9,7 @@ export const readDataFromFilename = (filename, fs) => {
   const formattedCreatedDate = data.createdAt?.toLocaleDateString("en-GB", options) ?? null
   const formattedUpdatedDate = data.updatedAt?.toLocaleDateString("en-GB", options) ?? null
 
-  console.log("DATA:", data)
-
-  return {
+  const pageContent = {
     ...data,
     content,
     createdAt: formattedCreatedDate,
@@ -19,6 +17,9 @@ export const readDataFromFilename = (filename, fs) => {
     filename: path.basename(filename, ".md"),
     folder: path.basename(path.dirname(filename)),
   }
+
+  console.debug("Page Content:", pageContent)
+  return pageContent
 }
 
 export const listMarkdownFiles = async (glob) => {

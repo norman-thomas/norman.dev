@@ -6,8 +6,6 @@ import glob from "glob-promise"
 import { readDataFromFilename, listMarkdownFilesIn, listMarkdownFiles } from "../../utils/files"
 import { Page, BlogList } from "../../components"
 
- import "tailwindcss/tailwind.css"
-
 export const getStaticPaths = async (context) => {
   console.log("CONTEXT:", context)
 

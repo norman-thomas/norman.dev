@@ -3,17 +3,11 @@ import Head from "next/head"
 import fs from "fs"
 import glob from "glob-promise"
 import { readDataFromFilename, listMarkdownFiles } from "../../utils/files"
-import { Page, BlogList } from "../../components"
-
-import "tailwindcss/tailwind.css"
+import { Page, Menu, Hero, Footer, BlogList } from "../../components"
 
 export const getStaticProps = async () => {
   const files = await listMarkdownFiles(glob)
-  console.log(files)
-
   const content = files.map((filename) => readDataFromFilename(filename, fs))
-  console.log(content)
-
   const contentByFolder = content.reduce((acc, f) => {
     acc[f.folder] = (acc[f.folder] || []).concat(f)
     return acc
@@ -31,7 +25,12 @@ const BlogPage = (props) => {
       <Head>
         <title>Blog</title>
       </Head>
-      <BlogList {...props} />
+      <div className="divide-y">
+        <Menu />
+        <Hero title="Articles" />
+        <BlogList {...props} />
+        <Footer />
+      </div>
     </Page>
   )
 }
