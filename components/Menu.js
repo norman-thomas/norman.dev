@@ -10,7 +10,7 @@ const Menu = () => {
         <Link href="/blog/">
           <a className="hover:font-bold flex-1">Blog</a>
         </Link>
-        <Link href="https://norman.works">
+        <Link href="https://norman.dev/resume">
           <a className="hover:font-bold flex-1" target="_blank">
             Resume
           </a>
