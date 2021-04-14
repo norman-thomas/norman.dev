@@ -24,7 +24,7 @@ export const getStaticProps = async (context) => {
   console.debug("PARAMS:", context)
   const { folder, name: filename } = context.params
   const content = readDataFromFilename(`content/blog/${folder}/${filename}.md`, fs)
-
+  content.topic = folder
   return {
     props: { content },
   }
@@ -34,7 +34,7 @@ const BlogEntry = ({ content }) => {
   return (
     <Page>
       <Head>
-        <title>Blog: {content.title}</title>
+        <title>{content.title} | {content.topic} | norman.dev</title>
       </Head>
       <div className="divider-y">
         <Menu />

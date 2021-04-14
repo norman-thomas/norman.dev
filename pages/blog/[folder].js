@@ -4,7 +4,7 @@ import Link from "next/link"
 import fs from "fs"
 import glob from "glob-promise"
 import { readDataFromFilename, listMarkdownFilesIn, listMarkdownFiles } from "../../utils/files"
-import { Page, Hero, ItemList } from "../../components"
+import { Page, Menu, Hero, ItemList } from "../../components"
 
 export const getStaticPaths = async (context) => {
   console.log("CONTEXT:", context)
@@ -36,7 +36,6 @@ export const getStaticProps = async (context) => {
     acc[f.folder] = (acc[f.folder] || []).concat(f)
     return acc
   }, {})
-  console.log(contentByFolder)
 
   return {
     props: { items: content, title: context.params.folder, grouped: contentByFolder },
@@ -47,9 +46,10 @@ const TopicPage = ({title, ...props}) => {
   return (
     <Page>
       <Head>
-        <title>Blog: [Haskell]</title>
+        <title>{title} | norman.dev</title>
       </Head>
-      <Hero title="Haskell" />
+      <Menu />
+      <Hero title={title} />
       <article>
         <ItemList {...props} />
       </article>
