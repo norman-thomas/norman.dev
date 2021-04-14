@@ -27,12 +27,21 @@ const Title = ({ title }) => (
 )
 
 const Description = ({ description }) =>
-  description ? <p className="text-gray-700 dark:text-gray-300">{description}</p> : null
+  description ? (
+    <p className="text-gray-700 dark:text-gray-300">{description}</p>
+  ) : null
 
 const Date = ({ date }) =>
-  date ? <p className="text-gray-500 group-hover:text-black dark:text-gray-300">{date}</p> : null
+  date ? (
+    <p className="text-gray-500 group-hover:text-black dark:text-gray-300">
+      {date}
+    </p>
+  ) : null
 
-const Image = ({ src }) => (src ? <img src={src} className="object-cover w-full h-64 pb-2" alt="" /> : null)
+const Image = ({ src }) =>
+  src ? (
+    <img src={src} className="object-cover w-full h-64 pb-2" alt="" />
+  ) : null
 
 const ItemList = ({ items, title, maxCount }) => {
   const entries = maxCount > 0 ? (items || []).slice(0, maxCount) : items

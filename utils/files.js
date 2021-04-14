@@ -9,8 +9,10 @@ export const readDataFromFilename = (filename, fs) => {
   const text = fileContent.toString()
   const { data, content } = matter(text)
   const options = { year: "numeric", month: "long", day: "numeric" }
-  const formattedCreatedDate = data.createdAt?.toLocaleDateString("en-GB", options) ?? null
-  const formattedUpdatedDate = data.updatedAt?.toLocaleDateString("en-GB", options) ?? null
+  const formattedCreatedDate =
+    data.createdAt?.toLocaleDateString("en-GB", options) ?? null
+  const formattedUpdatedDate =
+    data.updatedAt?.toLocaleDateString("en-GB", options) ?? null
 
   const pageContent = {
     ...data,

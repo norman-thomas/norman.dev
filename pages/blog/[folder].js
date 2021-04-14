@@ -3,7 +3,11 @@ import Link from "next/link"
 
 import fs from "fs"
 import glob from "glob-promise"
-import { readDataFromFilename, listMarkdownFilesIn, listMarkdownFiles } from "../../utils/files"
+import {
+  readDataFromFilename,
+  listMarkdownFilesIn,
+  listMarkdownFiles,
+} from "../../utils/files"
 import { Page, Menu, Hero, ItemList } from "../../components"
 
 export const getStaticPaths = async (context) => {
@@ -38,11 +42,15 @@ export const getStaticProps = async (context) => {
   }, {})
 
   return {
-    props: { items: content, title: context.params.folder, grouped: contentByFolder },
+    props: {
+      items: content,
+      title: context.params.folder,
+      grouped: contentByFolder,
+    },
   }
 }
 
-const TopicPage = ({title, ...props}) => {
+const TopicPage = ({ title, ...props }) => {
   return (
     <Page>
       <Head>

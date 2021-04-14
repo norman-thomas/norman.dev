@@ -9,7 +9,9 @@ const BlogEntry = ({ entry }) => (
           className="object-cover w-full h-64 pb-2"
           alt=""
         />
-        <p className="text-gray-500 group-hover:text-black dark:text-gray-300">{entry.createdAt}</p>
+        <p className="text-gray-500 group-hover:text-black dark:text-gray-300">
+          {entry.createdAt}
+        </p>
         <h2 className="py-2 text-2xl font-semibold leading-5 text-secondary-500 group-hover:text-secondary-800 dark:text-white">
           {entry.title}
         </h2>

@@ -16,7 +16,15 @@ module.exports = {
       ...myColors.blues,
     },
     fontFamily: {
-      serif: ["Merriweather", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
+      serif: [
+        "Merriweather",
+        "ui-serif",
+        "Georgia",
+        "Cambria",
+        "Times New Roman",
+        "Times",
+        "serif",
+      ],
     },
   },
   variants: {

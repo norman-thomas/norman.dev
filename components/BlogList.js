@@ -1,7 +1,8 @@
 import BlogEntry from "./BlogEntry"
 
 const BlogList = ({ entries, maxCount }) => {
-  const blogEntries = maxCount > 0 ? (entries || []).slice(0, maxCount) : entries
+  const blogEntries =
+    maxCount > 0 ? (entries || []).slice(0, maxCount) : entries
   return (
     <div className="pb-16">
       <h2 className="p-4 text-2xl font-light">Latest Articles</h2>

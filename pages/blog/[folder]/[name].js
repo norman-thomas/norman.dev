@@ -4,7 +4,15 @@ import glob from "glob-promise"
 import ReactMarkdown from "react-markdown"
 
 import { readDataFromFilename, listMarkdownFiles } from "../../../utils/files"
-import { Page, Menu, Hero, Footer, CodeBlock, Heading, Image } from "../../../components"
+import {
+  Page,
+  Menu,
+  Hero,
+  Footer,
+  CodeBlock,
+  Heading,
+  Image,
+} from "../../../components"
 
 export const getStaticPaths = async (context) => {
   console.debug("CONTEXT:", context)
@@ -23,7 +31,10 @@ export const getStaticPaths = async (context) => {
 export const getStaticProps = async (context) => {
   console.debug("PARAMS:", context)
   const { folder, name: filename } = context.params
-  const content = readDataFromFilename(`content/blog/${folder}/${filename}.md`, fs)
+  const content = readDataFromFilename(
+    `content/blog/${folder}/${filename}.md`,
+    fs
+  )
   content.topic = folder
   return {
     props: { content },
@@ -34,15 +45,21 @@ const BlogEntry = ({ content }) => {
   return (
     <Page>
       <Head>
-        <title>{content.title} | {content.topic} | norman.dev</title>
+        <title>
+          {content.title} | {content.topic} | norman.dev
+        </title>
       </Head>
       <div className="divider-y">
         <Menu />
         <Hero title={content.title} />
         <article className="p-4">
-          <p className="text-tertiary-800 dark:text-tertiary-300">{content.createdAt}</p>
+          <p className="text-tertiary-800 dark:text-tertiary-300">
+            {content.createdAt}
+          </p>
           <p className="">
-            <ReactMarkdown renderers={{ code: CodeBlock, heading: Heading, image: Image }}>
+            <ReactMarkdown
+              renderers={{ code: CodeBlock, heading: Heading, image: Image }}
+            >
               {content.content}
             </ReactMarkdown>
           </p>

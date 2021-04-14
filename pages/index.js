@@ -20,7 +20,7 @@ export const getStaticProps = async () => {
   }, {})
   console.log(contentByFolder)
 
-  const topics = Object.keys(contentByFolder).map(topic => ({
+  const topics = Object.keys(contentByFolder).map((topic) => ({
     title: `${topic} (${contentByFolder[topic].length})`,
     link: `/blog/${topic}`,
   }))
