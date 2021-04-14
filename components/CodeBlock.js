@@ -11,6 +11,7 @@ const CodeBlock = ({ language, value }) => (
     language={language}
     style={xonokai}
     showLineNumbers={true}
+    wrapLongLines={true}
     customStyle={customStyle}
     className="bg-gray-800"
   >

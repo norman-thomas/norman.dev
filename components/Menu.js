@@ -11,9 +11,7 @@ const Menu = () => {
           <a className="hover:font-bold flex-1">Blog</a>
         </Link>
         <Link href="https://norman.dev/resume">
-          <a className="hover:font-bold flex-1">
-            Resume
-          </a>
+          <a className="hover:font-bold flex-1">Resume</a>
         </Link>
       </div>
     </div>

@@ -1,4 +1,4 @@
-export const Heading = ({ level, ...props }) => {
+export const Heading = ({ level, node, ...props }) => {
   const mapping = [
     (p) => <h1 {...p} className="heading text-4xl" />,
     (p) => <h2 {...p} className="heading text-4xl" />,
@@ -12,8 +12,19 @@ export const Heading = ({ level, ...props }) => {
   return <Element {...props} />
 }
 
-export const Text = (props) => <p {...props} className="" />
+export const Text = ({ node, ...props }) => <p {...props} className="" />
 
-export const Image = ({ src, ...props }) => {
+export const Image = ({ src, node, ...props }) => {
   return <img src={`/images/${src}`} {...props} className="w-1/2 max-w-full" />
 }
+
+export const Link = ({ node, ...props }) => (
+  <a
+    {...props}
+    className="p-1 underline text-primary-300 hover:bg-primary-300 hover:text-black"
+  />
+)
+
+export const List = ({ node, ...props }) => (
+  <ul {...props} className="list-disc list-inside" />
+)

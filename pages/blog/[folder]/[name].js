@@ -1,18 +1,9 @@
 import Head from "next/head"
 import fs from "fs"
 import glob from "glob-promise"
-import ReactMarkdown from "react-markdown"
 
 import { readDataFromFilename, listMarkdownFiles } from "../../../utils/files"
-import {
-  Page,
-  Menu,
-  Hero,
-  Footer,
-  CodeBlock,
-  Heading,
-  Image,
-} from "../../../components"
+import { Page, Menu, Hero, Footer, Markdown } from "../../../components"
 
 export const getStaticPaths = async (context) => {
   console.debug("CONTEXT:", context)
@@ -57,11 +48,7 @@ const BlogPage = ({ content }) => {
             {content.createdAt}
           </p>
           <p className="">
-            <ReactMarkdown
-              renderers={{ code: CodeBlock, heading: Heading, image: Image }}
-            >
-              {content.content}
-            </ReactMarkdown>
+            <Markdown text={content.content} />
           </p>
         </article>
       </div>
