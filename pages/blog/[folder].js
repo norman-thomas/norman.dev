@@ -8,6 +8,7 @@ import {
   listMarkdownFilesIn,
   listMarkdownFiles,
 } from "../../utils/files"
+import { sorter } from "../utils/sorter"
 import { Page, Menu, Hero, ItemList } from "../../components"
 
 export const getStaticPaths = async (context) => {
@@ -31,7 +32,7 @@ export const getStaticProps = async (context) => {
   const files = await listMarkdownFilesIn(context.params.folder, glob)
   const content = files
     .map((filename) => readDataFromFilename(filename, fs))
-    .sort((a, b) => (a.fileTimestamp > b.fileTimestamp ? -1 : 1))
+    .sort(sorter)
   content.map((entry) => {
     entry.date = entry.createdAt
     entry.link = `/blog/${entry.folder}/${entry.filename}`

@@ -41,7 +41,7 @@ export const getStaticProps = async (context) => {
   }
 }
 
-const BlogEntry = ({ content }) => {
+const BlogPage = ({ content }) => {
   return (
     <Page>
       <Head>
@@ -70,4 +70,4 @@ const BlogEntry = ({ content }) => {
   )
 }
 
-export default BlogEntry
+export default BlogPage

@@ -21,19 +21,21 @@ const ItemInner = ({ title, description, image, date }) => (
 )
 
 const Title = ({ title }) => (
-  <h2 className="py-2 text-2xl font-semibold leading-5 text-secondary-500 group-hover:text-secondary-800 dark:text-white">
+  <h2 className="py-2 text-2xl font-normal leading-5 text-secondary-500 group-hover:text-secondary-800 dark:text-white">
     {title}
   </h2>
 )
 
 const Description = ({ description }) =>
   description ? (
-    <p className="text-gray-700 dark:text-gray-300">{description}</p>
+    <p className="font-extralight text-gray-700 dark:text-gray-300 group-hover:text-gray-700">
+      {description}
+    </p>
   ) : null
 
 const Date = ({ date }) =>
   date ? (
-    <p className="text-gray-500 group-hover:text-black dark:text-gray-300">
+    <p className="font-extralight text-gray-500 group-hover:text-gray-700 dark:text-gray-300">
       {date}
     </p>
   ) : null
@@ -43,12 +45,19 @@ const Image = ({ src }) =>
     <img src={src} className="object-cover w-full h-64 pb-2" alt="" />
   ) : null
 
-const ItemList = ({ items, title, maxCount }) => {
+const ListTitle = ({ title }) =>
+  title ? (
+    <h2 className="p-4 text-2xl font-light bg-tertiary-800 text-white">
+      {title}
+    </h2>
+  ) : null
+
+const ItemList = ({ items, title, maxCount, columns }) => {
   const entries = maxCount > 0 ? (items || []).slice(0, maxCount) : items
 
   return (
     <div className="pb-8">
-      {title && <h2 className="p-4 text-2xl font-light">{title}</h2>}
+      <ListTitle title={title} />
       <ul className="grid gap-2 xl:grid-cols-3 md:grid-cols-2 sm:max-w-sm sm:mx-auto md:max-w-full">
         {entries.map((item, i) => (
           <Item key={i} {...item} />
