@@ -127,3 +127,5 @@ cabal build
 3️⃣ [Plutus Community Docs](http://docs.plutus-community.com/docs/setup/MacOS.html)
 
 4️⃣ [Plutus Pioneer Programm - Lecture #1](https://youtu.be/IEn6jUo-0vU)
+
+5️⃣ [Plutus Setup Instructions by `lsmor`](https://github.com/lsmor/plutus-pioneer-program/blob/master/installation/instructions.md)
