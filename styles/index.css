@@ -8,4 +8,8 @@
   .heading {
     @apply font-serif font-bold py-4;
   }
+
+  a.external::before {
+    content: "🔗 ";
+  }
 }

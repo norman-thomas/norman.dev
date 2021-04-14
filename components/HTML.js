@@ -21,7 +21,8 @@ export const Image = ({ src, node, ...props }) => {
 export const Link = ({ node, ...props }) => (
   <a
     {...props}
-    className="p-1 underline text-primary-300 hover:bg-primary-300 hover:text-black"
+    className="external p-1 underline hover:no-underline text-primary-300 hover:bg-primary-300 hover:text-black"
+    target="_blank"
   />
 )
 
