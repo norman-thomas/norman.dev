@@ -3,7 +3,7 @@ import Head from "next/head"
 import fs from "fs"
 import glob from "glob-promise"
 import { readDataFromFilename, listMarkdownFiles } from "../../utils/files"
-import { sorter } from "../utils/sorter"
+import { sorter } from "../../utils/sorter"
 import { Page, Menu, Hero, Footer, ItemList } from "../../components"
 
 export const getStaticProps = async () => {

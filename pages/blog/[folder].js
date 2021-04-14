@@ -8,7 +8,7 @@ import {
   listMarkdownFilesIn,
   listMarkdownFiles,
 } from "../../utils/files"
-import { sorter } from "../utils/sorter"
+import { sorter } from "../../utils/sorter"
 import { Page, Menu, Hero, ItemList } from "../../components"
 
 export const getStaticPaths = async (context) => {
