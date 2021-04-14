@@ -1,8 +1,8 @@
 ---
 title: Intro to PureScript
 description: The first post is the most memorable one.
-createdAt: 2020-04-16
-updatedAt: 2020-04-16
+createdAt: 2021-04-01
+updatedAt: 2021-04-01
 tags:
   - PureScript
   - Frontend

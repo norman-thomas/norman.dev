@@ -1,6 +1,6 @@
 ---
 title: Plutus Development Setup on macOS
-description: The first post is the most memorable one.
+description: A guide how to set up a working Plutus development environment on macOS.
 createdAt: 2021-04-09
 updatedAt: 2021-04-14
 tags:
