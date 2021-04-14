@@ -46,7 +46,7 @@ const StartPage = ({ topics, ...props }) => {
           <ItemList
             title="Topics"
             items={topics}
-            columns={{ sm: 2, md: 4, xl: 6 }}
+            columns={["sm:grid-cols-2", "md:grid-cols-4", "xl:grid-cols-6"]}
           />
           <ItemList title="Latest Articles" {...props} maxCount={9} />
         </article>

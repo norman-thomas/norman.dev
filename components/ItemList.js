@@ -52,11 +52,7 @@ const ListTitle = ({ title }) =>
     </h2>
   ) : null
 
-const DEFAULT_COLUMNS = {
-  xl: 4,
-  lg: 3,
-  md: 2,
-}
+const DEFAULT_COLUMNS = ["xl:grid-cols-4", "lg:grid-cols-3", "md:grid-cols-2"]
 // sm:max-w-sm sm:mx-auto md:max-w-full
 
 const ItemList = ({ items, title, maxCount, columns = DEFAULT_COLUMNS }) => {
@@ -76,13 +72,11 @@ const ItemList = ({ items, title, maxCount, columns = DEFAULT_COLUMNS }) => {
 }
 
 const calculateColumns = (columns) => {
-  if (columns instanceof Number) {
-    return `grid-cols-${columns}`
+  if (columns instanceof String) {
+    return columns
   }
-  if (columns instanceof Object) {
-    return Object.keys(columns)
-      .map((size) => `${size}:grid-cols-${columns[size]}`)
-      .join(" ")
+  if (columns instanceof Array) {
+    return columns.join(" ")
   }
   return ""
 }
