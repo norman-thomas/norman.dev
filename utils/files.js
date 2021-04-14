@@ -1,6 +1,8 @@
 import path from "path"
 import matter from "gray-matter"
 
+import { BLOG_FOLDER } from "./constants"
+
 export const readDataFromFilename = (filename, fs) => {
   const fileContent = fs.readFileSync(filename)
   const fileTimestamp = fs.statSync(filename).mtime.toISOString()
@@ -25,9 +27,13 @@ export const readDataFromFilename = (filename, fs) => {
 }
 
 export const listMarkdownFiles = async (glob) => {
-  return await glob("content/blog/**/*.md", { nodir: true })
+  return await glob(`${BLOG_FOLDER}/**/*.md`, { nodir: true })
 }
 
 export const listMarkdownFilesIn = async (folder, glob) => {
-  return await glob(`content/blog/${folder}/*.md`, { nodir: true })
+  return await glob(`${BLOG_FOLDER}/${folder}/*.md`, { nodir: true })
+}
+
+export const listTopics = async (fs) => {
+  return await fs.readFile(`${BLOG_FOLDER}/`)
 }

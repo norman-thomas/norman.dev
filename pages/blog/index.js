@@ -3,11 +3,17 @@ import Head from "next/head"
 import fs from "fs"
 import glob from "glob-promise"
 import { readDataFromFilename, listMarkdownFiles } from "../../utils/files"
-import { Page, Menu, Hero, Footer, BlogList } from "../../components"
+import { Page, Menu, Hero, Footer, ItemList } from "../../components"
 
 export const getStaticProps = async () => {
   const files = await listMarkdownFiles(glob)
-  const content = files.map((filename) => readDataFromFilename(filename, fs))
+  const content = files
+    .map((filename) => readDataFromFilename(filename, fs))
+    .sort((a, b) => (a.fileTimestamp > b.fileTimestamp ? -1 : 1))
+  content.map((entry) => {
+    entry.date = entry.createdAt
+    entry.link = `/blog/${entry.folder}/${entry.filename}`
+  })
   const contentByFolder = content.reduce((acc, f) => {
     acc[f.folder] = (acc[f.folder] || []).concat(f)
     return acc
@@ -15,7 +21,7 @@ export const getStaticProps = async () => {
   console.log(contentByFolder)
 
   return {
-    props: { entries: content, grouped: contentByFolder },
+    props: { items: content, grouped: contentByFolder },
   }
 }
 
@@ -29,7 +35,7 @@ const BlogPage = (props) => {
         <Menu />
         <Hero title="Blog" />
         <article>
-          <BlogList {...props} />
+          <ItemList title="Latest Articles" {...props} maxCount={12} />
         </article>
         <Footer />
       </div>

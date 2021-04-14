@@ -1,4 +1,5 @@
 const colors = require("tailwindcss/colors")
+const myColors = require("./colors")
 
 module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
@@ -12,12 +13,7 @@ module.exports = {
       white: colors.white,
       gray: colors.trueGray,
       warmgray: colors.warmGray,
-      indigo: colors.indigo,
-      blue: colors.blue,
-      green: colors.green,
-      teal: colors.teal,
-      red: colors.rose,
-      yellow: colors.amber,
+      ...myColors.blues,
     },
     fontFamily: {
       serif: ["Merriweather", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],

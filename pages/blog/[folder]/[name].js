@@ -40,7 +40,7 @@ const BlogEntry = ({ content }) => {
         <Menu />
         <Hero title={content.title} />
         <article className="p-4">
-          <p className="text-gray-800 dark:text-gray-300">{content.createdAt}</p>
+          <p className="text-tertiary-800 dark:text-tertiary-300">{content.createdAt}</p>
           <p className="">
             <ReactMarkdown renderers={{ code: CodeBlock, heading: Heading, image: Image }}>
               {content.content}

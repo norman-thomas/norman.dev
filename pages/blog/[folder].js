@@ -4,17 +4,13 @@ import Link from "next/link"
 import fs from "fs"
 import glob from "glob-promise"
 import { readDataFromFilename, listMarkdownFilesIn, listMarkdownFiles } from "../../utils/files"
-import { Page, Hero, BlogList } from "../../components"
+import { Page, Hero, ItemList } from "../../components"
 
 export const getStaticPaths = async (context) => {
   console.log("CONTEXT:", context)
 
   const files = await listMarkdownFiles(glob)
-  console.log(files)
-
   const content = files.map((filename) => readDataFromFilename(filename, fs))
-  console.log(content)
-
   const paths = content.map((entry) => ({
     params: { folder: entry.folder, name: entry.filename, ...entry },
   }))
@@ -29,7 +25,13 @@ export const getStaticProps = async (context) => {
   console.log("context:", context)
 
   const files = await listMarkdownFilesIn(context.params.folder, glob)
-  const content = files.map((filename) => readDataFromFilename(filename, fs))
+  const content = files
+    .map((filename) => readDataFromFilename(filename, fs))
+    .sort((a, b) => (a.fileTimestamp > b.fileTimestamp ? -1 : 1))
+  content.map((entry) => {
+    entry.date = entry.createdAt
+    entry.link = `/blog/${entry.folder}/${entry.filename}`
+  })
   const contentByFolder = content.reduce((acc, f) => {
     acc[f.folder] = (acc[f.folder] || []).concat(f)
     return acc
@@ -37,11 +39,11 @@ export const getStaticProps = async (context) => {
   console.log(contentByFolder)
 
   return {
-    props: { entries: content, grouped: contentByFolder },
+    props: { items: content, title: context.params.folder, grouped: contentByFolder },
   }
 }
 
-const TopicPage = (props) => {
+const TopicPage = ({title, ...props}) => {
   return (
     <Page>
       <Head>
@@ -49,7 +51,7 @@ const TopicPage = (props) => {
       </Head>
       <Hero title="Haskell" />
       <article>
-        <BlogList {...props} />
+        <ItemList {...props} />
       </article>
     </Page>
   )
