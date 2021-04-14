@@ -43,7 +43,11 @@ const StartPage = ({ topics, ...props }) => {
         <Menu />
         <Hero title="norman.dev" />
         <article>
-          <ItemList title="Topics" items={topics} />
+          <ItemList
+            title="Topics"
+            items={topics}
+            columns={{ sm: 2, md: 4, xl: 6 }}
+          />
           <ItemList title="Latest Articles" {...props} maxCount={9} />
         </article>
         <Footer />
