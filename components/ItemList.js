@@ -52,19 +52,39 @@ const ListTitle = ({ title }) =>
     </h2>
   ) : null
 
-const ItemList = ({ items, title, maxCount, columns }) => {
+const DEFAULT_COLUMNS = {
+  xl: 4,
+  lg: 3,
+  md: 2,
+}
+// sm:max-w-sm sm:mx-auto md:max-w-full
+
+const ItemList = ({ items, title, maxCount, columns = DEFAULT_COLUMNS }) => {
   const entries = maxCount > 0 ? (items || []).slice(0, maxCount) : items
+  const columnClasses = calculateColumns(columns)
 
   return (
     <div className="pb-8">
       <ListTitle title={title} />
-      <ul className="grid gap-2 xl:grid-cols-3 md:grid-cols-2 sm:max-w-sm sm:mx-auto md:max-w-full">
+      <ul className={`grid gap-2 ${columnClasses}`}>
         {entries.map((item, i) => (
           <Item key={i} {...item} />
         ))}
       </ul>
     </div>
   )
+}
+
+const calculateColumns = (columns) => {
+  if (columns instanceof Number) {
+    return `grid-cols-${columns}`
+  }
+  if (columns instanceof Object) {
+    return Object.keys(columns)
+      .map((size) => `${size}:grid-cols-${columns[size]}`)
+      .join(" ")
+  }
+  return ""
 }
 
 export default ItemList
