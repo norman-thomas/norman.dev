@@ -1,11 +1,11 @@
 export const Heading = ({ level, node, ...props }) => {
   const mapping = [
-    (p) => <h1 {...p} className="heading text-4xl" />,
-    (p) => <h2 {...p} className="heading text-4xl" />,
-    (p) => <h3 {...p} className="heading text-3xl" />,
-    (p) => <h4 {...p} className="heading text-2xl" />,
-    (p) => <h5 {...p} className="heading text-xl" />,
-    (p) => <h6 {...p} className="heading text-lg" />,
+    (p) => <h1 {...p} className="heading tracking-wide text-4xl" />,
+    (p) => <h2 {...p} className="heading tracking-wide text-4xl" />,
+    (p) => <h3 {...p} className="heading tracking-wide text-3xl" />,
+    (p) => <h4 {...p} className="heading tracking-wide text-2xl" />,
+    (p) => <h5 {...p} className="heading tracking-wide text-xl" />,
+    (p) => <h6 {...p} className="heading tracking-wide text-lg" />,
   ]
   const paragraph = <p {...props} />
   const Element = level < mapping.length ? mapping[level] : paragraph
@@ -26,6 +26,9 @@ export const Link = ({ node, ...props }) => (
   />
 )
 
-export const List = ({ node, ...props }) => (
-  <ul {...props} className="list-disc list-inside" />
-)
+export const List = ({ node, ordered, ...props }) =>
+  ordered ? (
+    <ol {...props} className="list-disc list-inside" />
+  ) : (
+    <ul {...props} className="list-disc list-inside" />
+  )
