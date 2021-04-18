@@ -8,7 +8,6 @@
     "start": "next start",
     "format": "prettier --no-semi --write \"{,!(node_modules|build|out|.next)/**/}*.js\"",
     "format:check": "prettier --no-semi --check \"{,!(node_modules|build|out|.next)/**/}*.js\""
-
   },
   "dependencies": {
     "glob": "^7.1.6",
