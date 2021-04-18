@@ -24,7 +24,6 @@ export const readDataFromFilename = (filename, fs) => {
     folder: path.basename(path.dirname(filename)),
   }
 
-  console.debug("Page Content:", pageContent)
   return pageContent
 }
 

@@ -12,8 +12,6 @@ import { sorter } from "../../utils/sorter"
 import { Page, Menu, Hero, ItemList } from "../../components"
 
 export const getStaticPaths = async (context) => {
-  console.log("CONTEXT:", context)
-
   const files = await listMarkdownFiles(glob)
   const content = files.map((filename) => readDataFromFilename(filename, fs))
   const paths = content.map((entry) => ({
@@ -27,8 +25,6 @@ export const getStaticPaths = async (context) => {
 }
 
 export const getStaticProps = async (context) => {
-  console.log("context:", context)
-
   const files = await listMarkdownFilesIn(context.params.folder, glob)
   const content = files
     .map((filename) => readDataFromFilename(filename, fs))

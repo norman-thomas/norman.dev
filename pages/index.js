@@ -19,7 +19,6 @@ export const getStaticProps = async () => {
     acc[f.folder] = (acc[f.folder] || []).concat(f)
     return acc
   }, {})
-  console.log(contentByFolder)
 
   const topics = Object.keys(contentByFolder)
     .map((topic) => ({

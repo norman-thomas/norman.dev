@@ -14,6 +14,7 @@ const CodeBlock = ({ language, value }) => (
     wrapLongLines={true}
     customStyle={customStyle}
     className="bg-gray-800"
+    codeTagProps={{ className: "font-mono" }}
   >
     {value}
   </SyntaxHighlighter>

@@ -1,11 +1,11 @@
 export const Heading = ({ level, node, ...props }) => {
   const mapping = [
-    (p) => <h1 {...p} className="heading tracking-wide text-4xl" />,
-    (p) => <h2 {...p} className="heading tracking-wide text-4xl" />,
-    (p) => <h3 {...p} className="heading tracking-wide text-3xl" />,
-    (p) => <h4 {...p} className="heading tracking-wide text-2xl" />,
-    (p) => <h5 {...p} className="heading tracking-wide text-xl" />,
-    (p) => <h6 {...p} className="heading tracking-wide text-lg" />,
+    (p) => <h1 {...p} className="heading font-mono font-thin text-4xl" />,
+    (p) => <h2 {...p} className="heading font-mono font-thin text-4xl" />,
+    (p) => <h3 {...p} className="heading font-mono font-thin text-3xl" />,
+    (p) => <h4 {...p} className="heading font-mono font-thin text-2xl" />,
+    (p) => <h5 {...p} className="heading font-mono font-thin text-xl" />,
+    (p) => <h6 {...p} className="heading font-mono font-thin text-lg" />,
   ]
   const paragraph = <p {...props} />
   const Element = level < mapping.length ? mapping[level] : paragraph
@@ -21,7 +21,7 @@ export const Image = ({ src, node, ...props }) => {
 export const Link = ({ node, ...props }) => (
   <a
     {...props}
-    className="external p-1 underline hover:no-underline text-primary-300 hover:bg-primary-300 hover:text-black"
+    className="external p-1 underline hover:no-underline text-primary-500 dark:text-primary-300 hover:bg-primary-300 hover:text-black"
     target="_blank"
   />
 )
@@ -32,3 +32,7 @@ export const List = ({ node, ordered, ...props }) =>
   ) : (
     <ul {...props} className="list-disc list-inside" />
   )
+
+export const Paragraph = ({ node, ...props }) => (
+  <p {...props} className="my-3"/>
+)

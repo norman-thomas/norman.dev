@@ -6,7 +6,7 @@
 
 @layer components {
   .heading {
-    @apply font-serif font-bold py-4;
+    @apply mb-6 mt-8;
   }
 
   a.external::before {

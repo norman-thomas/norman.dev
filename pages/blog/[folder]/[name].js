@@ -6,7 +6,6 @@ import { readDataFromFilename, listMarkdownFiles } from "../../../utils/files"
 import { Page, Menu, Hero, Footer, Markdown } from "../../../components"
 
 export const getStaticPaths = async (context) => {
-  console.debug("CONTEXT:", context)
   const files = await listMarkdownFiles(glob)
   const content = files.map((filename) => readDataFromFilename(filename, fs))
   const paths = content.map((entry) => ({
@@ -20,7 +19,6 @@ export const getStaticPaths = async (context) => {
 }
 
 export const getStaticProps = async (context) => {
-  console.debug("PARAMS:", context)
   const { folder, name: filename } = context.params
   const content = readDataFromFilename(
     `content/blog/${folder}/${filename}.md`,
