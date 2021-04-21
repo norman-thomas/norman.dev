@@ -38,19 +38,18 @@ const StartPage = ({ topics, ...props }) => {
       <Head>
         <title>norman.dev</title>
       </Head>
-      <div>
-        <Menu />
-        <Hero title="norman.dev" />
-        <Article>
-          <ItemList
-            title="Topics"
-            items={topics}
-            columns={["sm:grid-cols-2", "md:grid-cols-4", "xl:grid-cols-6"]}
-          />
-          <ItemList title="Latest Articles" {...props} maxCount={9} />
-        </Article>
-        <Footer />
-      </div>
+
+      <Menu />
+      <Hero title="norman.dev" />
+      <Article>
+        <ItemList
+          title="Topics"
+          items={topics}
+          columns={["sm:grid-cols-2", "md:grid-cols-4", "xl:grid-cols-6"]}
+        />
+        <ItemList title="Latest Articles" {...props} maxCount={9} />
+      </Article>
+      <Footer />
     </Page>
   )
 }

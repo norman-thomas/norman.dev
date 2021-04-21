@@ -47,19 +47,19 @@ const BlogPage = ({ content }) => {
           {content.title} | {content.topic} | norman.dev
         </title>
       </Head>
-      <div className="divider-y">
-        <Menu />
-        <Hero title={content.title} />
-        <Article>
-          <div className="flex">
-            <Tags tags={content.tags} />
-            <Date date={content.createdAt} />
-          </div>
-          <p className="">
-            <Markdown text={content.content} />
-          </p>
-        </Article>
-      </div>
+
+      <Menu />
+      <Hero title={content.title} />
+      <Article>
+        <div className="flex">
+          <Tags tags={content.tags} />
+          <Date date={content.createdAt} />
+        </div>
+        <p className="">
+          <Markdown text={content.content} />
+        </p>
+      </Article>
+
       <Footer />
     </Page>
   )

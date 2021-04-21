@@ -31,14 +31,13 @@ const BlogPage = (props) => {
       <Head>
         <title>norman.dev: Blog</title>
       </Head>
-      <div>
-        <Menu />
-        <Hero title="Blog" />
-        <Article>
-          <ItemList title="Latest Articles" {...props} maxCount={12} />
-        </Article>
-        <Footer />
-      </div>
+
+      <Menu />
+      <Hero title="Blog" />
+      <Article>
+        <ItemList title="Latest Articles" {...props} maxCount={12} />
+      </Article>
+      <Footer />
     </Page>
   )
 }

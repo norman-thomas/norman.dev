@@ -6,6 +6,8 @@ const Tags = ({ tags }) => (
   </ul>
 )
 
-const Tag = ({ tag }) => <li className="mr-4 px-4 rounded-full bg-primary-400 text-white">{tag}</li>
+const Tag = ({ tag }) => (
+  <li className="mr-4 px-4 rounded-full bg-primary-400 text-white">{tag}</li>
+)
 
 export default Tags
