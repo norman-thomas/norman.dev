@@ -7,7 +7,7 @@ const Page = ({ children }) => {
     document.querySelector("body").classList.add("dark:text-secondary-50")
   })
 
-  return <main className="container py-4 mx-auto">{children}</main>
+  return <main>{children}</main>
 }
 
 export default Page

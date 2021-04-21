@@ -3,7 +3,7 @@ const myColors = require("./colors")
 
 module.exports = {
   purge: ["./pages/**/*.js", "./components/**/*.js"],
-  darkMode: "media", // or 'media' or 'class'
+  darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {},
     colors: {
@@ -16,7 +16,15 @@ module.exports = {
       ...myColors.blues,
     },
     fontFamily: {
-      serif: ["Merriweather", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
+      serif: [
+        "Merriweather",
+        "ui-serif",
+        "Georgia",
+        "Cambria",
+        "Times New Roman",
+        "Times",
+        "serif",
+      ],
       // sans: ["Merriweather Sans", "ui-sans-serif", "system-ui"],
       mono: ["Fira Code", "Menlo", "Monaco", "Courier New", "monospace"],
     },

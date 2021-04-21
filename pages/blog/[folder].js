@@ -9,7 +9,7 @@ import {
   listMarkdownFiles,
 } from "../../utils/files"
 import { sorter } from "../../utils/sorter"
-import { Page, Menu, Hero, ItemList } from "../../components"
+import { Page, Menu, Hero, Article, ItemList } from "../../components"
 
 export const getStaticPaths = async (context) => {
   const files = await listMarkdownFiles(glob)
@@ -55,9 +55,9 @@ const TopicPage = ({ title, ...props }) => {
       </Head>
       <Menu />
       <Hero title={title} />
-      <article>
+      <Article>
         <ItemList {...props} />
-      </article>
+      </Article>
     </Page>
   )
 }

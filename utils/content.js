@@ -1,7 +1,4 @@
-import {
-  readDataFromFilename,
-  listMarkdownFiles,
-} from "./files"
+import { readDataFromFilename, listMarkdownFiles } from "./files"
 import { sorter } from "./sorter"
 
 export const getBlogPosts = async () => {

@@ -3,7 +3,14 @@ import fs from "fs"
 import glob from "glob-promise"
 
 import { readDataFromFilename, listMarkdownFiles } from "../../../utils/files"
-import { Page, Menu, Hero, Footer, Markdown } from "../../../components"
+import {
+  Page,
+  Menu,
+  Hero,
+  Article,
+  Footer,
+  Markdown,
+} from "../../../components"
 
 export const getStaticPaths = async (context) => {
   const files = await listMarkdownFiles(glob)
@@ -41,14 +48,14 @@ const BlogPage = ({ content }) => {
       <div className="divider-y">
         <Menu />
         <Hero title={content.title} />
-        <article className="p-4">
+        <Article>
           <p className="text-tertiary-800 dark:text-tertiary-300">
             {content.createdAt}
           </p>
           <p className="">
             <Markdown text={content.content} />
           </p>
-        </article>
+        </Article>
       </div>
       <Footer />
     </Page>

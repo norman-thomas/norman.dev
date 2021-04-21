@@ -4,7 +4,7 @@ import fs from "fs"
 import glob from "glob-promise"
 import { readDataFromFilename, listMarkdownFiles } from "../../utils/files"
 import { sorter } from "../../utils/sorter"
-import { Page, Menu, Hero, Footer, ItemList } from "../../components"
+import { Page, Menu, Hero, Article, Footer, ItemList } from "../../components"
 
 export const getStaticProps = async () => {
   const files = await listMarkdownFiles(glob)
@@ -34,9 +34,9 @@ const BlogPage = (props) => {
       <div>
         <Menu />
         <Hero title="Blog" />
-        <article>
+        <Article>
           <ItemList title="Latest Articles" {...props} maxCount={12} />
-        </article>
+        </Article>
         <Footer />
       </div>
     </Page>

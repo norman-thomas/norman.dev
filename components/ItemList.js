@@ -47,9 +47,7 @@ const Image = ({ src }) =>
 
 const ListTitle = ({ title }) =>
   title ? (
-    <h2 className="p-4 text-2xl font-light bg-tertiary-800 text-white">
-      {title}
-    </h2>
+    <h2 className="p-4 text-2xl font-light dark:text-white">{title}</h2>
   ) : null
 
 const DEFAULT_COLUMNS = ["xl:grid-cols-3", "lg:grid-cols-2"]

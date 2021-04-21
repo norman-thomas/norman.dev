@@ -34,5 +34,5 @@ export const List = ({ node, ordered, ...props }) =>
   )
 
 export const Paragraph = ({ node, ...props }) => (
-  <p {...props} className="my-3"/>
+  <p {...props} className="my-3" />
 )
