@@ -11,7 +11,7 @@ tags:
 
 # Prerequisites
 
-* macOS (11.1 Big Sur)
+* macOS (11.2 Big Sur)
 * Terminal
 
 # Install Nix
