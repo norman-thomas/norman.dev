@@ -6,7 +6,8 @@ updatedAt: 2021-04-14
 tags:
   - Plutus
   - Cardano
-  - Blockchain
+  - Nix
+  - macOS
 ---
 
 # Prerequisites

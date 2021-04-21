@@ -7,6 +7,8 @@ import {
   Page,
   Menu,
   Hero,
+  Tags,
+  Date,
   Article,
   Footer,
   Markdown,
@@ -49,9 +51,10 @@ const BlogPage = ({ content }) => {
         <Menu />
         <Hero title={content.title} />
         <Article>
-          <p className="text-tertiary-800 dark:text-tertiary-300">
-            {content.createdAt}
-          </p>
+          <div className="flex">
+            <Tags tags={content.tags} />
+            <Date date={content.createdAt} />
+          </div>
           <p className="">
             <Markdown text={content.content} />
           </p>
