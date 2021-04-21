@@ -1,5 +1,5 @@
 const Tags = ({ tags }) => (
-  <ul className="flex flex-row flex-1">
+  <ul className="flex flex-row flex-1" itemprop="keywords">
     {tags.map((tag, i) => (
       <Tag tag={tag} key={i} />
     ))}

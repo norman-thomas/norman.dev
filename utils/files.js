@@ -14,14 +14,18 @@ export const readDataFromFilename = (filename, fs) => {
   const formattedUpdatedDate =
     data.updatedAt?.toLocaleDateString("en-GB", options) ?? null
 
+  const fname = path.basename(filename, ".md")
+  const folder = path.basename(path.dirname(filename))
+
   const pageContent = {
     ...data,
     content,
     createdAt: formattedCreatedDate,
     updatedAt: formattedUpdatedDate,
     fileTimestamp,
-    filename: path.basename(filename, ".md"),
-    folder: path.basename(path.dirname(filename)),
+    filename: fname,
+    folder,
+    link: `blog/${folder}/${fname}`,
   }
 
   return pageContent

@@ -41,7 +41,11 @@ export const getStaticProps = async (context) => {
 
 const BlogPage = ({ content }) => {
   return (
-    <Page>
+    <Page
+      itemscope
+      itemtype="https://schema.org/BlogPosting"
+      itemid={`https://norman.dev/${content.link}`}
+    >
       <Head>
         <title>
           {content.title} | {content.topic} | norman.dev
@@ -49,13 +53,13 @@ const BlogPage = ({ content }) => {
       </Head>
 
       <Menu />
-      <Hero title={content.title} />
+      <Hero title={content.title} itemprop="headline" />
       <Article>
         <div className="flex">
           <Tags tags={content.tags} />
           <Date date={content.createdAt} />
         </div>
-        <p className="">
+        <p className="" itempro="articleBody">
           <Markdown text={content.content} />
         </p>
       </Article>
