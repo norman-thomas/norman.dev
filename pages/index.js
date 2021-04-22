@@ -37,6 +37,10 @@ const StartPage = ({ topics, ...props }) => {
     <Page>
       <Head>
         <title>norman.dev</title>
+        <meta
+          name="google-site-verification"
+          content="Ugr_o_0FVMQMN8W6ha7JGS6Q0z9L6VohxnrBPH5LbLM"
+        />
       </Head>
 
       <Menu />
