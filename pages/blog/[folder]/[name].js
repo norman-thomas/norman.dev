@@ -10,7 +10,6 @@ import {
   Tags,
   Date,
   Article,
-  Footer,
   Markdown,
 } from "../../../components"
 
@@ -63,8 +62,6 @@ const BlogPage = ({ content }) => {
           <Markdown text={content.content} />
         </p>
       </Article>
-
-      <Footer />
     </Page>
   )
 }
