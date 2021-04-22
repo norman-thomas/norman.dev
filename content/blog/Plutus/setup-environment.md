@@ -49,7 +49,7 @@ substituters = https://hydra.iohk.io https://iohk.cachix.org https://cache.nixos
 trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ= iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=
 ```
 
-Note: Do not configure the sandbox feature here, it tends to break the setup.
+Note: Do **not** configure the sandbox feature here, it tends to break the setup.
 
 You may need to restart your computer at this point.
 
@@ -66,7 +66,8 @@ nix build -f default.nix plutus.haskell.packages.plutus-core.components.library
 ### Troubleshooting
 
 This should work. However, some people experienced errors complaining about a missing `/usr/lib/libSystem.B.dylib`.
-In such a case, try to upgrade nixpkgs to a newer (albeit unstable) version by running
+In such a case, first make sure you do not have the sandbox enabled in `/etc/nix/nix.conf`.
+If that's already the case, try to upgrade nixpkgs to a newer (albeit unstable) version by running
 
 ```sh
 sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable unstable
