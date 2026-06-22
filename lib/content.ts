@@ -17,7 +17,7 @@ export const site = {
   links: {
     email: "hello@norman.dev", // TODO: confirm address
     github: "https://github.com/norman-thomas",
-    linkedin: "https://www.linkedin.com/", // TODO
+    linkedin: "https://www.linkedin.com/in/norman-thomas/",
     fullProfile: "https://norman.works",
   },
 };
