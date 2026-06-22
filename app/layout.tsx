@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -66,7 +67,14 @@ export default function RootLayout({
     >
       {/* suppressHydrationWarning: browser extensions inject attributes on
           <html>/<body> before hydration, which would otherwise mismatch. */}
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+        <Script
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          strategy="afterInteractive"
+          data-cf-beacon='{"token": "d1b43a23f56d4696bf17e540f6f4c3ae"}'
+        />
+      </body>
     </html>
   );
 }
