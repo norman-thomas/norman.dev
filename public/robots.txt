@@ -1,0 +1,10 @@
+# Only the live homepage should be indexed.
+# The design archive lives at unlinked URLs — keep crawlers out of it.
+User-agent: *
+Allow: /$
+Disallow: /lab
+Disallow: /spec
+Disallow: /synapse
+Disallow: /deck
+Disallow: /terminal
+Disallow: /aurora
